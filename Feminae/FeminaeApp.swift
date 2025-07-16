@@ -13,7 +13,8 @@ struct FeminaeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: ToDoItem.self)
+            ToDoList()
         }
+        .modelContainer(for: ToDoItem.self)
     }
 }

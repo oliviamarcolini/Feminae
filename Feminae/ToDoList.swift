@@ -45,10 +45,15 @@ struct ToDoList: View {
                                 Toggle(isOn: Binding(
                                     get: { subtask.isCompleted },
                                     set: { newValue in
-                                        subtask.isCompleted = newValue
+                                        withAnimation {
+                                            subtask.isCompleted = newValue
+                                        }
                                     }
                                 )) {
                                     Text(subtask.title)
+                                        .opacity(subtask.isCompleted ? 0.4 : 1.0)
+                                        .foregroundColor(.primary)
+                                        .strikethrough(subtask.isCompleted)
                                 }
                             }
                             Button("Add Subtask") {
@@ -57,7 +62,6 @@ struct ToDoList: View {
                         } label: {
                             HStack {
                                 Text(toDo.title)
-                                    .fontWeight(toDo.isImportant ? .bold : .regular)
                                 Spacer()
                                 Text("\(Int(toDo.completionPercentage))%")
                                     .foregroundColor(.gray)
@@ -70,8 +74,9 @@ struct ToDoList: View {
 
             } //VStack
             
-            if showNewTask {
-                NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
+            .sheet(isPresented: $showNewTask) {
+                NewToDoView(showNewTask: $showNewTask)
+                    .presentationDetents([.fraction(0.3), .medium])
             }
             
         } //ZStack
@@ -84,6 +89,7 @@ struct ToDoList: View {
                         set: { showNewSubtaskFor = $0 ? parent : nil }
                     )
                 )
+                .presentationDetents([.fraction(0.25), .medium])
             }
 
     } //body

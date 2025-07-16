@@ -13,12 +13,14 @@ class ToDoItem {
     var title: String
     var isImportant: Bool
     var isCompleted: Bool
-    var subtasks: [ToDoItem]
+    var parent: ToDoItem?
+    @Relationship(deleteRule: .cascade, inverse: \ToDoItem.parent) var subtasks: [ToDoItem]
     
-    init(title: String, isImportant: Bool = false, isCompleted: Bool = false, subtasks: [ToDoItem] = []) {
+    init(title: String, isImportant: Bool = false, isCompleted: Bool = false, parent: ToDoItem? = nil, subtasks: [ToDoItem] = []) {
         self.title = title
         self.isImportant = isImportant
         self.isCompleted = isCompleted
+        self.parent = parent
         self.subtasks = subtasks
     }
     
@@ -30,3 +32,6 @@ class ToDoItem {
         return (Double(completed) / Double(subtasks.count)) * 100
     }
 }
+
+extension ToDoItem: Identifiable {}
+

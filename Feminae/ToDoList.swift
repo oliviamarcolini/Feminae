@@ -9,9 +9,27 @@ import SwiftUI
 
 struct ToDoList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        VStack {
+            HStack {
+                Text("To Do List")
+                     .font(.system(size: 40))
+                     .fontWeight(.black)
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("+")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+                
+            } //HStack
+            .padding()
+            Spacer()
+        } //VStack
+    } //body
+} //struct
 
 #Preview {
     ToDoList()

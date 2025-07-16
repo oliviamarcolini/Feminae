@@ -38,15 +38,30 @@ struct ToDoList: View {
             
             List {
                 ForEach(toDos) { toDoItem in
-                    if toDoItem.isImportant {
-                        Text("‼️" + toDoItem.title)
-                    } else {
-                        Text(toDoItem.title)
+                    DisclosureGroup {
+                        ForEach(toDoItem.subtasks.indices, id: \.self) { index in
+                            HStack {
+                                Toggle(isOn: Binding(
+                                    get: { toDoItem.subtasks[index].isCompleted },
+                                    set: { newValue in
+                                        toDoItem.subtasks[index].isCompleted = newValue
+                                    })) {
+                                        Text(toDoItem.subtasks[index].title)
+                                }
+                            }
+                        }
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(toDoItem.title)
+                                .fontWeight(toDoItem.isImportant ? .bold : .regular)
+                            Text("\(Int(toDoItem.completionPercentage))% completed")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
-                .onDelete(perform: deleteToDo)
-                .listStyle(.plain)
             }
+
         } //VStack
         if showNewTask {
             NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))

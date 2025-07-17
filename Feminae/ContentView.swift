@@ -87,4 +87,5 @@ struct HomeButton: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: ToDoItem.self, inMemory: true)
 }

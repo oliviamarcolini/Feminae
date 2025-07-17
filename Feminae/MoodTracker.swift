@@ -85,7 +85,7 @@
         ]
         
         var body: some View {
-            NavigationStack {
+            //NavigationStack {
                 ZStack {
                     Color.theme.bgGradient.ignoresSafeArea()
                     VStack(spacing: 20) {
@@ -105,8 +105,8 @@
                         Spacer()
                     }
                 }
-                .navigationBarHidden(true)
-            }
+                //.navigationBarHidden(true)
+            //}
         }
     }
     

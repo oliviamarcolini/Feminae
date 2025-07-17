@@ -153,7 +153,6 @@ struct SelfCareSection: View {
     ]
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 Color.theme.bgGradient.ignoresSafeArea()
                 VStack(alignment: .leading, spacing: 16) {
@@ -175,8 +174,6 @@ struct SelfCareSection: View {
                 }
                 .padding(.top, 40)
             }
-            .navigationBarHidden(true)
-        }
     }
 }
 

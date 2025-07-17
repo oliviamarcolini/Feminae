@@ -32,12 +32,12 @@ struct WomenSafety: View {
                     Text("Emergency Contacts:")
                         .font(.headline)
                         .foregroundColor(.white)
-                    
+                                            
                     List(emergencyContacts, id: \.self) { contact in
                         Text(contact)
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color.white)
+                            .background(Color.pink)
                             .cornerRadius(8)
                             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     }

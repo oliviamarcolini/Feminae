@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SafetyPage: View {
+struct WomenSafety: View {
     @State private var emergencyContacts: [String] = [
         "Brazilian Police - Dial 190",
         "US Emergency telephone number - Dial 911",
@@ -57,3 +57,8 @@ struct SafetyPage: View {
         }
     }
 }
+
+#Preview {
+    WomenSafety()
+}
+

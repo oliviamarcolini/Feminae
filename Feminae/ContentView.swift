@@ -13,21 +13,22 @@ struct ContentView: View {
             ZStack {
                 Color.theme.bgGradient.ignoresSafeArea()
                 VStack (alignment: .leading, spacing: 20){
-                    
                     Spacer()
-                    
-                    Text("Welcome to Feminae")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
-                        .font(.system(size:32))
-                    
-                    Text("An app for women made by women ‎ . ݁⋆ ۶ৎ ݁˖ . ݁")
-                        .italic()
-                        .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
-                        .font(.system(size:25))
-                    
-                    Spacer()
-                    
+                    VStack {
+                        Text("Welcome to Feminae")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
+                            .font(.system(size:32))
+                        
+                        Text("An app for women made by women ‎ . ݁⋆ ۶ৎ ݁˖ . ݁")
+                            .italic()
+                            .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
+                            .font(.system(size:25))
+                        
+                    }
+                    .padding(.bottom, 45.0)
+                   
+                                        
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing:20), count: 2), spacing: 20) {
                         NavigationLink(destination: ToDoList()) {
                             HomeButton(icon: "checkmark.circle", label: "To-Do")
@@ -87,5 +88,5 @@ struct HomeButton: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: ToDoItem.self, inMemory: true)
+        
 }

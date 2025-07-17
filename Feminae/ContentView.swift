@@ -40,7 +40,7 @@ struct ContentView: View {
                         NavigationLink(destination: MoodTrackerSection()) {
                             HomeButton(icon: "face.smiling", label: "Mood-Tracker")
                     }
-                        NavigationLink(destination: WomenSafety()) {
+                        NavigationLink(destination: SafetyPage()) {
                             HomeButton(icon: "exclamationmark.triangle", label: "Women-Safety")
                         }
 

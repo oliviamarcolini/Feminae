@@ -46,19 +46,14 @@ struct SafetyPage: View {
                     Button(action: {
                         
                     }) {
-                        Text("Call Uber")
-                            .font(.headline)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white)
-                            .foregroundColor(.blue)
-                            .cornerRadius(8)
-                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        
                     }
+                    .padding()
                 }
-                .padding()
+                .navigationBarTitle("Safety", displayMode: .inline)
+                
+                
             }
-            .navigationBarTitle("Safety", displayMode: .inline)
         }
     }
 }

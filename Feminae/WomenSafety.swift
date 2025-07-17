@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SafetyPage: View {
     @State private var emergencyContacts: [String] = [
-        "John Doe - 123-456-7890",
-        "Jane Smith - 987-654-3210"
+        "Brazilian Police - Dial 190",
+        "US Emergency telephone number - Dial 911",
+        "Hong Kong emergency number - Dial 999"
     ]
     
     var body: some View {

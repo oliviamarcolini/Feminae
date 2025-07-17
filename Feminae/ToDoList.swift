@@ -19,6 +19,7 @@ struct ToDoList: View {
         ZStack {
             Color.theme.bgGradient.ignoresSafeArea()
             VStack {
+                
                 HStack {
                     Text("⋆˚꩜｡ To Do List")
                          .font(.system(size: 40))

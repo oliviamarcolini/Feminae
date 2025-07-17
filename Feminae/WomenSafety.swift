@@ -9,38 +9,37 @@ import SwiftUI
 
 struct WomenSafety: View {
     @State private var emergencyContacts: [String] = [
-        "Brazilian Police - Dial 190",
-        "US Emergency telephone number - Dial 911",
-        "Hong Kong emergency number - Dial 999"
+        "🇧🇷 Brazilian Police - Dial 190",
+        "🇺🇸 USA Emergency telephone number - Dial 911",
+        "🇭🇰 Hong Kong emergency number - Dial 999"
     ]
     
     var body: some View {
         NavigationView {
             ZStack {
-                // Background Gradient
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]),
-                               startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+                Color.theme.bgGradient.ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                    Text("Women's Safety Page")
-                        .font(.largeTitle)
+                    Text("Women's Safety ‧₊♀˚.")
+                        .font(.system(size: 40))
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .padding()
                     
                     Text("Emergency Contacts:")
-                        .font(.headline)
+                        .font(.system(size: 25))
                         .foregroundColor(.white)
                                             
                     List(emergencyContacts, id: \.self) { contact in
                         Text(contact)
+                            .font(.system(size: 20))
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color.pink)
+                            .background(Color.white.opacity(0.8))
                             .cornerRadius(8)
                             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     }
+                    .scrollContentBackground(.hidden)
                     .listStyle(PlainListStyle())
                     
                     Button(action: {
@@ -48,13 +47,12 @@ struct WomenSafety: View {
                     }) {
                         
                     }
-                    .padding()
+                    
                 }
-                .navigationBarTitle("Safety", displayMode: .inline)
-                
-                
+                .padding(.all, 25.0)
             }
         }
+        
     }
 }
 

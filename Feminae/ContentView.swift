@@ -18,12 +18,12 @@ struct ContentView: View {
                     
                     Text("Welcome to Feminae")
                         .fontWeight(.bold)
-                        .foregroundColor(Color.purple)
+                        .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
                         .font(.system(size:32))
                     
                     Text("An app for women made by women ‎ . ݁⋆ ۶ৎ ݁˖ . ݁")
                         .italic()
-                        .foregroundColor(Color.purple.opacity(0.7))
+                        .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
                         .font(.system(size:25))
                     
                     Spacer()
@@ -49,7 +49,7 @@ struct ContentView: View {
                     Spacer()
                     
                 }//VStack
-                .padding(.all, 25.0)
+                .padding(.all, 30.0)
                 .padding()
                 
             }//ZStack

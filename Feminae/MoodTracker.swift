@@ -79,7 +79,7 @@
         let moods: [MoodOption] = [
             MoodOption(mood: "Sad", icon: "face.dashed", isSad: true),
             MoodOption(mood: "Anxious", icon: "exclamationmark.circle", isSad: true),
-            MoodOption(mood: "Okay", icon: "face.neutral", isSad: false),
+            MoodOption(mood: "Okay", icon: "face.dashed.fill", isSad: false),
             MoodOption(mood: "Happy", icon: "smiley", isSad: false),
             MoodOption(mood: "Great", icon: "star.circle", isSad: false)
         ]

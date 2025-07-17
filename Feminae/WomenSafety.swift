@@ -26,19 +26,30 @@ struct WomenSafety: View {
                         .foregroundColor(.black)
                         .padding()
                     
+                    Spacer()
+                    
                     Text("Emergency Contacts:")
                         .font(.system(size: 25))
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(hue: 0.748, saturation: 0.337, brightness: 0.709))
+                        .multilineTextAlignment(.leading)
+                        .italic()
+                        .bold()
                                             
-                    List(emergencyContacts, id: \.self) { contact in
-                        Text(contact)
-                            .font(.system(size: 20))
-                            .foregroundColor(.black)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(8)
-                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                    ScrollView {
+                        VStack(spacing: 15) {
+                            ForEach(emergencyContacts, id: \.self) { contact in
+                                Text(contact)
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(Color.white.opacity(0.8))
+                                    .cornerRadius(8)
+                                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                            }
+                        }
                     }
+
                     .scrollContentBackground(.hidden)
                     .listStyle(PlainListStyle())
                     

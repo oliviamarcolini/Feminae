@@ -28,11 +28,8 @@ struct NewSubtaskView: View {
                     modelContext.insert(newSubtask)
                 }
                 isPresented = false
-            }
+            }.foregroundColor(.purple)
 
-            Button("Cancel") {
-                isPresented = false
-            }
         }
         .padding()
     }

@@ -17,9 +17,10 @@ struct ToDoList: View {
     
     var body: some View {
         ZStack {
+            Color.theme.bgGradient.ignoresSafeArea()
             VStack {
                 HStack {
-                    Text("To Do List")
+                    Text("⋆˚꩜｡ To Do List")
                          .font(.system(size: 40))
                          .fontWeight(.black)
                     Spacer()
@@ -32,6 +33,7 @@ struct ToDoList: View {
                         Text("+")
                             .font(.title)
                             .fontWeight(.bold)
+                            .foregroundColor(.purple)
                     }
                     
                 } //HStack
@@ -58,19 +60,38 @@ struct ToDoList: View {
                             }
                             Button("Add Subtask") {
                                 showNewSubtaskFor = toDo
-                            }
+                            } .foregroundColor(.gray)
                         } label: {
-                            HStack {
-                                Text(toDo.title)
-                                Spacer()
-                                Text("\(Int(toDo.completionPercentage))%")
-                                    .foregroundColor(.gray)
-                                    .font(.caption)
-                            }
-                        }
-                    }
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.white.opacity(0.9))
+                                    .shadow(radius: 2)
+                                
+                                HStack {
+                                    Text(toDo.title)
+                                    Spacer()
+                                    Text("\(Int(toDo.completionPercentage))%")
+                                        .foregroundColor(.purple)
+                                        .font(.caption)
+                                } //HStack
+                                
+                                .padding()
+                                
+                            } //ZStack
+                            
+                            .padding(.vertical, 4)
+                            
+                        } //label
+                        .accentColor(.purple)
+                        .listRowBackground(Color.clear)
+                        
+                    } //ForEach(toDos)
                     .onDelete(perform: deleteToDo)
-                }
+                } //List
+                .scrollContentBackground(.hidden)
+                .listStyle(.plain)
+
 
             } //VStack
             

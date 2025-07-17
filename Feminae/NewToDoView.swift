@@ -23,7 +23,7 @@ struct NewToDoView: View {
                 let newTask = ToDoItem(title: title)
                 modelContext.insert(newTask)
                 showNewTask = false
-            }
+            }.foregroundColor(.purple)
         }
         .padding()
     }
